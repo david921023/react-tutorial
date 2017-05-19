@@ -36,7 +36,6 @@ function matchDispatchToProps(dispatch) {
 class Stopwatch extends Component {
 
     handlePlay() {
-
         if (! this.props.bIsPlaying) {
             var timerId = setInterval(() => this.props.stepStopWatch(this.props.aStopTime), 10);
             this.props.setTimerId(timerId);
@@ -50,6 +49,7 @@ class Stopwatch extends Component {
             clearInterval(this.props.iTimerId);
             this.props.setTimerId(null);
         }
+
         this.props.pauseStopWatch(this.props.aStopTime)
     }
 
@@ -58,6 +58,7 @@ class Stopwatch extends Component {
             clearInterval(this.props.iTimerId);
             this.props.setTimerId(null);
         }
+
         this.props.resetStopWatch(this.props.aStopTime);
     }
 

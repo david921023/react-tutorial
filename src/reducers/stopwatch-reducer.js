@@ -31,8 +31,7 @@ const initState = {
 
 const stopWatchReducer = (state = initState, action) =>{
 
-    console.log(action.type);
-
+    console.log(state);
 
     switch(action.type) {
 
@@ -52,8 +51,6 @@ const stopWatchReducer = (state = initState, action) =>{
         default :
             break;
     }
-
-    console.log(state);
 
     return state;
 }

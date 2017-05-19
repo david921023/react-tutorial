@@ -29,6 +29,11 @@ function matchDispatchToProps(dispatch) {
 
 class Clock extends Component {
 
+    componentWillMount() {
+        console.log("is it printed every time?");
+        this.props.changeClock(TIME_ZONE_SEOUL, this.props.iClockTimerId)
+    }
+
     render() {
         return (
             <div className="Clock">
