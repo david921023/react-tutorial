@@ -5,11 +5,7 @@ import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import '../App.css';
 import {connect} from 'react-redux';
-import {playStopWatch} from '../actions/stopwatch-action';
-import {pauseStopWatch} from '../actions/stopwatch-action';
-import {resetStopWatch} from '../actions/stopwatch-action';
-import {stepStopWatch} from '../actions/stopwatch-action';
-import {setTimerId} from '../actions/stopwatch-action';
+import {playStopWatch, pauseStopWatch, resetStopWatch, stepStopWatch, setTimerId} from '../actions/stopwatch-action';
 
 
 function mapStateToProps(state) {
@@ -17,9 +13,9 @@ function mapStateToProps(state) {
     console.log("MapStateToProps returns entire state nested within the state", state);
 
     return {
-        aStopTime : state.aStopTime.aStopTime,
-        iTimerId : state.aStopTime.iTimerId,
-        bIsPlaying : state.aStopTime.bIsPlaying,
+        aStopTime : state.stopWatch.aStopTime,
+        iTimerId : state.stopWatch.iTimerId,
+        bIsPlaying : state.stopWatch.bIsPlaying,
     }
 }
 
@@ -37,7 +33,7 @@ class Stopwatch extends Component {
 
     handlePlay() {
         if (! this.props.bIsPlaying) {
-            var timerId = setInterval(() => this.props.stepStopWatch(this.props.aStopTime), 10);
+            let timerId = setInterval(() => this.props.stepStopWatch(this.props.aStopTime), 10);
             this.props.setTimerId(timerId);
         }
 

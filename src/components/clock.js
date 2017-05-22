@@ -2,7 +2,6 @@
  * Created by david921023 on 2017. 5. 19..
  */
 import React, {Component} from 'react';
-import {bindActionCreators} from 'redux';
 import '../App.css';
 import {connect} from 'react-redux';
 import {changeClock} from '../actions/clock-action';
@@ -15,16 +14,10 @@ function mapStateToProps(state) {
     console.log("MapStateToProps returns entire state nested within the state", state);
 
     return {
-        iClockTimerId : state.sZone.iClockTimerId,
-        sZone : state.sZone.sZone,
-        sCurrentTime : state.sCurrentTime.sCurrentTime,
+        iClockTimerId : state.clock.iClockTimerId,
+        sZone : state.clock.sZone,
+        sCurrentTime : state.clock.sCurrentTime,
     }
-}
-
-function matchDispatchToProps(dispatch) {
-    return bindActionCreators({
-        changeClock : changeClock,
-    }, dispatch);
 }
 
 class Clock extends Component {
@@ -35,6 +28,7 @@ class Clock extends Component {
     }
 
     render() {
+
         return (
             <div className="Clock">
                 <p>{this.props.sCurrentTime}</p>
@@ -55,4 +49,4 @@ class Clock extends Component {
     }
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(Clock);
+export default connect(mapStateToProps, { changeClock })(Clock);

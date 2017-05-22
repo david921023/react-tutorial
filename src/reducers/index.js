@@ -6,12 +6,8 @@ import stopWatchReducer from './stopwatch-reducer';
 import clockReducer from './clock-reducer';
 
 const integratedReducer = combineReducers({
-    aStopTime : stopWatchReducer,
-    iTimerId : stopWatchReducer,
-    bIsPlaying : stopWatchReducer,
-    iClockTimerId : clockReducer,
-    sZone : clockReducer,
-    sCurrentTime : clockReducer,
+    stopWatch : stopWatchReducer,
+    clock : clockReducer,
 });
 
 export default integratedReducer;
